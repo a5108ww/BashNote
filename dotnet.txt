@@ -1,0 +1,14 @@
+列出所有SDK
+dotnet --list-sdks
+
+編譯
+dotnet build <要編譯的專案根目錄> -c <編譯組態類型>
+範例：
+dotnet build C:\Users\shilvainhsieh\Desktop\shilvain\私人儲存庫\GinDerAuthProject\GinDerAuthServerApi -c Debug
+
+發布
+dotnet publish <要發布的專案根目錄> -c <編譯組態類型> -p:IsTransformWebConfigDisabled=false -o <發布目的目錄>
+範例：
+dotnet publish C:\Users\shilvainhsieh\Desktop\shilvain\私人儲存庫\GinDerAuthProject\GinDerAuthServerApi -c Debug -p:IsTransformWebConfigDisabled=false -o C:\Users\shilvainhsieh\Desktop\shilvain\WebService\AuthApi
+
+dotnet build 跟publish 適用於.net 31以後的版本

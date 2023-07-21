@@ -1,0 +1,30 @@
+
+
+-----複製檔案-----
+copy <要複製的檔案路徑> <新檔案存在的完成路徑>
+範例：
+copy C:\Users\shilvainhsieh\Desktop\shilvain\編譯指令.txt C:\Users\shilvainhsieh\Desktop\shilvain\編譯指令2.txt
+
+-----刪除檔案-----
+Del <要刪除的檔案路徑>
+範例：
+Del C:\Users\shilvainhsieh\Desktop\shilvain\編譯指令2.txt
+
+Del C:\Users\shilvainhsieh\Desktop\shilvain\編譯指令2.txt
+
+-----建立目錄-----
+md C:\Users\shilvainhsieh\Desktop\shilvain\test
+
+-----建立檔案-----
+
+md C:\Users\shilvainhsieh\Desktop\shilvain\test\編譯指令2.txt
+
+-----進入目錄-----
+cd C:\Users\shilvainhsieh\Desktop\shilvain\test
+
+-----列出該目錄底下的目錄以及檔案-----
+dir
+
+
+-----複製檔案以及目錄-----
+xcopy test test2 /I

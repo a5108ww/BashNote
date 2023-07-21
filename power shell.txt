@@ -1,0 +1,21 @@
+$email_username = "驗證的帳號";
+$email_password = "驗證的密碼";
+$email_smtp_host = "寄信主機Domain";
+$email_smtp_port = 25;
+$email_smtp_SSL = 1;
+$email_from_address = "寄件者Email";
+$email_to_addressArray = @("收件者Email", "收件者Email");
+
+$message = new-object Net.Mail.MailMessage;
+$message.From = $email_from_address;
+foreach ($to in $email_to_addressArray) {
+    $message.To.Add($to);
+}
+$message.Subject = "寄信主旨";
+$message.Body = "寄信內容";
+
+$smtp = new-object Net.Mail.SmtpClient($email_smtp_host, $email_smtp_port);
+$smtp.EnableSSL = $email_smtp_SSL;
+$smtp.Credentials = New-Object System.Net.NetworkCredential($email_username, $email_password);
+$smtp.send($message);
+$message.Dispose();
