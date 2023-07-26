@@ -1,5 +1,4 @@
 
-
 -----複製檔案-----
 copy <要複製的檔案路徑> <新檔案存在的完成路徑>
 範例：
@@ -8,15 +7,20 @@ copy C:\Users\shilvainhsieh\Desktop\shilvain\編譯指令.txt C:\Users\shilvainh
 -----刪除檔案-----
 Del <要刪除的檔案路徑>
 範例：
-Del C:\Users\shilvainhsieh\Desktop\shilvain\編譯指令2.txt
+Del /f C:\Users\shilvainhsieh\Desktop\shilvain\編譯指令2.txt
+(加上/f 強制刪除檔案)
 
-Del C:\Users\shilvainhsieh\Desktop\shilvain\編譯指令2.txt
+del C:\Windows\log*.txt
+(刪除類似log1.txt、log2.txt等等的檔案)
 
 -----建立目錄-----
 md C:\Users\shilvainhsieh\Desktop\shilvain\test
 
------建立檔案-----
+-----刪除目錄-----
+rmdir /s C:\Users\shilvainhsieh\Desktop\shilvain\test\1
+(加上/s 強制刪除)
 
+-----建立檔案-----
 md C:\Users\shilvainhsieh\Desktop\shilvain\test\編譯指令2.txt
 
 -----進入目錄-----
@@ -24,7 +28,6 @@ cd C:\Users\shilvainhsieh\Desktop\shilvain\test
 
 -----列出該目錄底下的目錄以及檔案-----
 dir
-
 
 -----複製檔案以及目錄-----
 xcopy test test2 /I
