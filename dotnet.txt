@@ -11,4 +11,6 @@ dotnet publish <要發布的專案根目錄> -c <編譯組態類型> -p:IsTransf
 範例：
 dotnet publish C:\Users\shilvainhsieh\Desktop\shilvain\私人儲存庫\GinDerAuthProject\GinDerAuthServerApi -c Debug -p:IsTransformWebConfigDisabled=false -o C:\Users\shilvainhsieh\Desktop\shilvain\WebService\AuthApi
 
+用 Command 進行dotnet publish，專案路徑不能有中文
+
 dotnet build 跟publish 適用於.net 31以後的版本
