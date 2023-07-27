@@ -14,3 +14,23 @@ dotnet publish C:\Users\shilvainhsieh\Desktop\shilvain\私人儲存庫\GinDerAut
 用 Command 進行dotnet publish，專案路徑不能有中文
 
 dotnet build 跟publish 適用於.net 31以後的版本
+
+-----建置.Net Framework 4.8以下(含)的專案-----
+前置作業：
+1.設定環境變數，C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin
+
+Command Line
+msbuild [專案的.csproj的檔案所在路徑] [參數]
+
+範例：
+MSBuild C:\Users\shilvainhsieh\Desktop\shilvain\BitBucket\toeflprimary_Dachi\_WS\Toeic.RegisterAPI\Toeic.RegisterAPI.csproj 
+
+範例：
+MSBuild C:\Users\shilvainhsieh\Desktop\shilvain\BitBucket\toeflprimary_Dachi\_WS\Toeic.RegisterAPI\Toeic.RegisterAPI.csproj /p:platform="AnyCPU" /p:configuration="Debug" /t:Clean,Build /p:PublishProfile="LocalIIS_Api" /p:DeployOnBuild=true /p:publishUrl="C:\\Users\\shilvainhsieh\\Desktop\\shilvain\\WebService\\ToeflPrimaryTestApi"
+
+備註：
+如果要編譯.sln 
+/p:ConfigurationPlatforms=Release /p:Platform="Any CPU"
+
+如果要編譯.csproj
+/p:Configuration=Release /p:Platform=AnyCPU
