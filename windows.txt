@@ -31,3 +31,25 @@ dir
 
 -----複製檔案以及目錄-----
 xcopy test test2 /I
+
+
+-----IIS-----
+啟動IIS站台
+%windir%\system32\inetsrv\appcmd stop site /site.name:"GinderAuthServer"
+
+關閉IIS站台
+%windir%\system32\inetsrv\appcmd start site /site.name:"GinderAuthServer"
+
+-----開啟特定網址並傳特定參數-----
+start [瀏覽器執行檔] [網址]
+
+範例：
+start chrome.exe https://chunshin.atlassian.net/jira/software/c/projects/IHD/issues/?jql=project=IHD+and+assignee=currentUser()+and+status+in+(\"In+Progress\",\"To+Do\")
+
+說明：
+網址字串若需要空白，則使用 + 符號；若需要雙引號，則使用 \" 來代替
+
+
+
+
+
