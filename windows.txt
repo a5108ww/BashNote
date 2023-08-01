@@ -51,6 +51,15 @@ start chrome.exe https://chunshin.atlassian.net/jira/software/c/projects/IHD/iss
 
 如果參數放中文，最後會呈現不能識別的文字，請將文本編碼改成ANSI
 
+-----執行多條指令-----
+不管前面指令運行成功與否，都會執行後面的指令
+Del ..\..\test.txt & copy ..\..\..\test.txt
+
+前面指令運行成功才會執行後面的指令
+Del ..\..\test.txt && copy ..\..\..\test.txt
+
+前面指令運行失敗才會執行後面的指令
+Del ..\..\test.txt || copy ..\..\..\test.txt
 
 
 
