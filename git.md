@@ -4,7 +4,7 @@
 ##### 範例：git clone https://XXXX.OOOOO.GGGGG.git
 
 ## 2.更新遠端Repository到local(Fetch+Merge)
-##### 範例：git pull
+##### 範例：git pull origin master
 
 ## 3.檢查當前Repository 的檔案狀態
 #### 範例：git status
