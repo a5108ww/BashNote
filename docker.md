@@ -136,6 +136,31 @@ docker start Web1
 
 * 範例：docker push shilvain/linux_sqlserver:v1
 
+## 九、本機docker image 部屬至nas
+
+docker build -t shilvain/shilvainbackweb:v13 .
+
+----現有docke image 打包成tar檔----
+docker save -o C:\Users\a5108\OneDrive\桌面\shilvain\dockerimages\authapi.tar shilvain/ginderauthserverapi:v8
+docker save -o C:\Users\a5108\OneDrive\桌面\shilvain\dockerimages\authweb.tar shilvain/ginderauthserverbackend:v4
+
+個人後台
+docker save -o C:\Users\a5108\OneDrive\桌面\shilvain\dockerimages\backweb.tar shilvain/shilvainbackweb:v12
+docker save -o C:\Users\a5108\OneDrive\桌面\shilvain\dockerimages\backweb_v13.tar shilvain/shilvainbackweb:v13
+
+----將tar檔推到nas上----
+docker --tls -H="tcp://192.168.0.9:2376" load --input "C:\Users\a5108\OneDrive\桌面\shilvain\dockerimages\authapi.tar"
+docker --tls -H="tcp://192.168.0.9:2376" load --input "C:\Users\a5108\OneDrive\桌面\shilvain\dockerimages\authweb.tar"
+
+個人後台
+docker --tls -H="tcp://192.168.0.9:2376" load --input "C:\Users\a5108\OneDrive\桌面\shilvain\dockerimages\backweb.tar"
+docker --tls -H="tcp://192.168.0.9:2376" load --input "C:\Users\a5108\OneDrive\桌面\shilvain\dockerimages\backweb_v13.tar"
+
+----控制遠端nas container----
+docker --tls -H="tcp://192.168.0.9:2376" run -d --name motocycle -p 9000:80 moto
+
+docker --tls -H="tcp://192.168.0.9:2376" --version # 查詢遠端 nas docker 版本號
+
 
 
 
