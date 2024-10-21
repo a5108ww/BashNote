@@ -57,6 +57,10 @@ start %SystemRoot%\notepad.exe "C:\Windows\System32\drivers\etc\hosts"
 
 如果參數放中文，最後會呈現不能識別的文字，請將文本編碼改成ANSI
 
+-----開啟特定目錄-----
+
+start explorer "D:\\Startup\"
+
 -----執行多條指令-----
 不管前面指令運行成功與否，都會執行後面的指令
 Del ..\..\test.txt & copy ..\..\..\test.txt
