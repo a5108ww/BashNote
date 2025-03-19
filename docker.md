@@ -163,6 +163,20 @@ docker --tls -H="tcp://192.168.0.9:2376" run -d --name motocycle -p 9000:80 moto
 docker --tls -H="tcp://192.168.0.9:2376" --version # 查詢遠端 nas docker 版本號
 
 
+## 十、Docker Compose
 
+可以一次Build 多個Image
 
-
+version: '3'
+services:
+  mssqlServer:
+    build: ./mssql #要Build的專案
+    image: mssql #要Build的Docker Image
+    container_name: mssqlServer
+  frontweb:
+    build: ./front-end #要Build的Image
+    container_name: front-end
+    ports:
+      - 8092:80 #Host Port:Container Port
+    depends_on:
+      - mssqlServer # 這個寫法就代表這個服務要啟動前，mssqlServer 這個服務一定要先啟動才可以。
