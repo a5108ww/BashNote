@@ -7,6 +7,9 @@ az group create --name ShilvainTest
 # 建立App Service Plan
 az appservice plan create --resource-group ShilvainTest --name ShilvainAppPlan --sku F1
 
+# 刪除App Service Plan
+az appservice plan delete --name ASP-ShilvainTest-a2f9 --resource-group ShilvainTest
+
 # 通用變數
 ResourceGroup='ShilvainTest'
 AppServicePlan='ShilvainAppPlan'

@@ -5,6 +5,7 @@
 
 ## 2.更新遠端Repository到local(Fetch+Merge)
 ##### 範例：git pull origin master
+##### 範例：git pull
 
 ## 3.檢查當前Repository 的檔案狀態
 #### 範例：git status
@@ -39,7 +40,7 @@
 ##### 範例：git switch origin/dev(加上 origin/ 代表會在local建立local branch)
 
 ## 12.建立並切換到該分支
-##### 範例：git checkout -b developer
+##### 範例：git checkout -b developer(加上-b參數，同時建立和切換分支)
 
 ## 13.強制刪除指定分支（須先切換至其他分支再做刪除）
 ##### 範例：git branch -D developer
@@ -60,7 +61,7 @@
 ##### 範例：git checkout .  (還原所有檔案)
 ##### 範例：git checkout 1.txt (還原特定檔案)
 
-## 18.print 現在的指向的分支
+## 18.顯示現在指向的分支
 ##### 範例：cat .git/HEAD
 
 ## 19.合併分支
