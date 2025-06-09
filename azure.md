@@ -1,10 +1,10 @@
 
 # 通用變數
-ResourceGroup='ShilvainTest'
-AppServicePlan='ShilvainAppPlan'
-VNet='ShilvainVNet01'
-NSG='ShilvainNsg'
-SubNet='ShilvainSubNet01'
+ResourceGroup='ShilvainProd'
+AppServicePlan='ShilvainProdAppPlan'
+NSG='ShilvainProdNsg'
+VNet='ShilvainProdVNet'
+SubNet='ShilvainProdSubNet'
 NetCard='ShilvainNetCard01'
 PublicIP='ShilvainPublicIP01'
 VMName1='ShilvainVM01'
