@@ -30,20 +30,45 @@ az webapp create -g $ResourceGroup -p $AppServicePlan --n $AppServiceName --runt
 //dotnet8
 az webapp create -g $ResourceGroup -p $AppServicePlan --n $AppServiceName --runtime "Dotnet:8" --deployment-local-git
 
-# 建立Vnet
-az network vnet create -n $VNet -g $ResourceGroup --address-prefix 192.168.0.0/16
+# Vnet
 
-# 建立防火牆規則
-az network nsg create -n $NSG -g $ResourceGroup
+## 建立
+az network vnet create -n $VNet -g $ResourceGroup --address-prefix 192.168.0.0/16  --location eastasia
+
+## 刪除
+az network vnet delete -n $VNet -g $ResourceGroup
+
+# 防火牆規則
+
+## 建立
+az network nsg create -n $NSG -g $ResourceGroup --location eastasia
+
+## 刪除
+az network nsg delete -g $ResourceGroup -n $NSG
 
 # 建立SubNet
+
+## 建立
 az network vnet subnet create -n $SubNet -g $ResourceGroup --vnet-name $VNet --address-prefix 192.168.1.0/24 --network-security-group $NSG
 
+## 刪除
+az network vnet subnet delete -n $SubNet -g $ResourceGroup --vnet-name $VNet
+
 # 建立網卡
+
+## 建立
 az network nic create -n $NetCard -g $ResourceGroup --vnet-name $VNet --subnet $SubNet --public-ip-address $PublicIP
 
-# 建立Public IP
+## 刪除
+az network nic delete -n $NetCard -g $ResourceGroup
+
+# Public IP
+
+## 建立
 az network public-ip create -n $PublicIP -g $ResourceGroup --sku standard --allocation-method static
+
+## 刪除
+az network public-ip delete -n $PublicIP -g $ResourceGroup
 
 # 建立VM
 
