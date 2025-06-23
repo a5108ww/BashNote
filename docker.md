@@ -165,18 +165,39 @@ docker --tls -H="tcp://192.168.0.9:2376" --version # 查詢遠端 nas docker 版
 
 ## 十、Docker Compose
 
-可以一次Build 多個Image
+可以一次建立、啟動、停止多個Container
 
-version: '3'
+### 建立 docker-compose.yml 檔案
+
+格式要UTF-8
+
+'# 使用 3.4 版的設定檔，通常新版本會有新的功能，並支援新的設定參數
+version: "3.8"
+
+'# 定義 service 的區塊，一個 service 設定可以用來啟動多個 container
 services:
-  mssqlServer:
-    build: ./mssql #要Build的專案
-    image: mssql #要Build的Docker Image
-    container_name: mssqlServer
-  frontweb:
-    build: ./front-end #要Build的Image
-    container_name: front-end
-    ports:
-      - 8092:80 #Host Port:Container Port
-    depends_on:
-      - mssqlServer # 這個寫法就代表這個服務要啟動前，mssqlServer 這個服務一定要先啟動才可以。
+    # 定義一個叫 nginx 的 service
+    nginx:
+        # 拉名為nginx 的映象檔
+        image: nginx
+        # 編譯名為為front-end 的專案
+        # build: ./front-end #要Build的專案
+        container_name: nginx
+        ports:
+          - "7777:80" #Host Port:Container Port
+    # 定義一個叫 database 的 service
+    database:
+        image: shilvain/linux_sqlserver:v1
+        container_name: mssql2
+        ports:
+          - "1433:1433"
+    # 定義一個叫 backapi 的 service
+    backapi:
+        image: backapi
+        container_name: backtestapi
+        ports:
+          - "9001:80"
+        # 這個寫法就代表這個服務要啟動前，database跟nginx 這兩個服務一定要先啟動才可以
+        depends_on:
+          - database
+          - nginx
