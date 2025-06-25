@@ -167,6 +167,27 @@ docker --tls -H="tcp://192.168.0.9:2376" --version # 查詢遠端 nas docker 版
 
 可以一次建立、啟動、停止多個Container
 
+'# 啟動所有的 Docker Container(背景執行)
+docker-compose up -d
+
+'# 啟動 docker-compose 執行的所有 Container
+docker-compose start
+
+'# 停止 docker-compose 執行的所有 Container
+docker-compose stop
+
+'# 停止並刪除 docker-compose 執行的所有 Container
+docker-compose down
+
+'# 刪除 docker-compose 的所有 Container
+docker-compose rm
+
+'# 查看 log
+docker-compose logs -f 
+
+'# 查看 Docker Container 的執行狀態
+docker-compose ps
+
 ### 建立 docker-compose.yml 檔案
 
 格式要UTF-8
